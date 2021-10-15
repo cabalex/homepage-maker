@@ -53,7 +53,12 @@ function saveCardAttr(change, elem, time) {
 function popupMenu(event) {
     event.preventDefault();
     selectedCard = $(this).attr('time');
-    $('#popupMenu').find('input#background').val($(this)[0].style.background)
+    if (!$(this)[0].style.background.includes("url(")) {
+        $('#popupMenu').find('input#background').val($(this)[0].style.background)
+    }
+    else {
+        $('#popupMenu').find('input#background').val('')
+    }
     if ($(this)[0].style.backgroundImage.match(/^url\((.*)\)$/)) {
         $('#popupMenu').find('input#background-image').val($(this)[0].style.backgroundImage.match(/^url\(\"(.*)\"\)$/)[1])
     } else {

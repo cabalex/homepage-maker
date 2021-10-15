@@ -117,6 +117,9 @@ input[type='text']:focus-visible {
 .card {
     z-index: 1;
 }
+.card a {
+    cursor: inherit;
+}
 .card a h1 {
     padding-top: 0 !important;
 }
