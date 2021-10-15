@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Homepage Maker">
+    <meta property="og:description" content="Make your own home pages!">
+    <meta property="og:image" content="https://cabalex.github.io/homepage-maker/assets/cover.png">
+    <title>cabalex</title>
+
+    <link class="editor-only" rel="stylesheet" href="editor-styles.css">
+    <script class="editor-only" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script class="editor-only" src="editor.js"></script>
+    <link class="editor-only" href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <h1 contenteditable>Homepage Maker</h1>
+            <span class="subtext" contenteditable>A tile based editor for homepages :)</span>
+            <p contenteditable>Click on any text field to edit it. Add more rows by clicking the plus icon below.<br>Click the buttons on the bottom right to preview and export your creation.<br>(Make sure you don't have any extensions that inject HTML into the page; they will mess up your final product!)</p>
+        </div>
+    </header>
+    <div class="btn-export editor-only" onclick="exportDOM(true)"><span class="material-icons">open_in_new</span> EXPORT</div>
+    <div class="btn-export editor-only" title="Preview your page in a new window." id="preview" onclick="exportDOM(false)"><span class="material-icons">open_in_browser</span></div>
+    <div class="editor-only" id="contextMenu">
+        <ul>
+        </ul>
+    </div>
+    <div class="editor-only" id="popupMenu">
+        <div>
+            <p>Linked URL <input id="url" type="text" placeholder="URL..." onkeyup="saveCardAttr('url', this, selectedCard)"></p>
+            <p>Background Image <input id="background-image" type="text" placeholder="URL..." onblur="saveCardAttr('background-image', this, selectedCard)"></p>
+            <p style="background-color: transparent; font-size: 24px">or</p>
+            <p>Background CSS <input id="background" type="text" placeholder="linear-gradient(#FFF, #000)" onkeyup="saveCardAttr('background', this, selectedCard)"></p>
+        </div>
+    </div>
+    <section time="2">
+        <h1 contenteditable>What I'm working on</h1>
+        <div class="cardlist" id="workingOn">
+            <div class="spacer"></div>
+            <article class="card" time="0">
+                <a>
+                    <h1 contenteditable>Hello world!</h1>
+                    <p contenteditable>You can edit this text too. Try right clicking for more options!</p>
+                </a>
+            </article>
+            <article class="card card-empty card-disabled">
+                <a><h1>Add a card</h1></a>
+            </article>
+        </div>
+    </section>
+    <section time="3">
+        <h1 contenteditable>My projects</h1>
+        <div class="cardlist" id="myProjects">
+            <div class="spacer"></div>
+            <article class="card card-empty card-disabled">
+                <a><h1>Add a card</h1></a>
+            </article>
+        </div>
+    </section>
+    <section class="editor-only" id="addSection" onclick="addSection()">
+        <h1><span class="material-icons">add</span></h1>
+    </section>
+    <footer>
+        <div>
+            <h1 contenteditable>Thanks for visiting!</h1>
+            <p contenteditable>For more fun projects, visit <a href="https://cabalex.github.io">cabalex.github.io</a></p>
+            <b style="color: #999" contenteditable>cabalex 2021</b>
+        </div>
+    </footer>
+    <a id="watermark" style="size: 12px; color: var(--grey); font-weight: bold; padding: 10px" href="https://cabalex.github.io/homepage-maker">There'll be a link to this page here when you export, but you can remove it if you want!</a>
+</body>
+</html>

@@ -1,0 +1,134 @@
+.btn-export {
+   position: fixed;
+   font-family: "Work Sans", Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   border-radius: 50vh;
+   bottom: 20px;
+   right: 20px;
+   z-index: 999;
+   padding: 5px 20px;
+   font-size: 32px;
+   cursor: pointer;
+   user-select: none;
+   background: var(--blue);
+   box-shadow: 0 0 10px black;
+   transition: transform 0.2s, background 0.2s;
+}
+.btn-export:hover {
+    transform: scale(1.1);
+    background: linear-gradient(90deg, var(--blue), var(--red));
+}
+#preview {
+    right: 240px;
+    background: var(--blue);
+}
+#addSection {
+    border: 5px dashed var(--grey);
+    border-radius: 0.5em;
+    margin: 10px;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    transition: color 0.2s, border-color 0.2s;
+}
+#addSection * {
+    font-size: 32px;
+    padding: 10px;
+    margin: 0;
+    vertical-align: top;
+    color: var(--grey);
+    font-weight: bolder;
+    transition: color 0.2s, border-color 0.2s;
+}
+#addSection:hover, #addSection:hover *  {
+    color: white !important;
+    border-color: white;
+}
+#contextMenu {
+    z-index: 99;
+    background-color: var(--grey);
+    position: absolute;
+    padding: 5px;
+    border-radius: 0.25em;
+    display: none;
+}
+#contextMenu ul {
+    list-style: none;
+    padding: 0;
+    vertical-align: middle;
+    user-select: none;
+    margin: 0;
+}
+#contextMenu li {
+    margin: 2px;
+    padding: 8px;
+    border-radius: 0.25em;
+}
+#popupMenu {
+    position: fixed;
+    height: 200px;
+    bottom: 0px;
+    width: calc(100% - 40px);
+    border-radius: 0.25em;
+    padding: 10px;
+    margin: 10px;
+    z-index: 98;
+    background-color: var(--grey);
+    box-shadow: 0 0 10px black;
+    display: none;
+}
+#popupMenu > div {
+    display: grid;
+    height: 140px;
+    justify-content: space-evenly;
+    justify-items: stretch;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 0.1fr 1fr;
+    gap: 2vw;
+}
+#popupMenu > div > * {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    vertical-align: middle;
+    border-radius: 0.25em;
+}
+input[type='text'] {
+    border: 0;
+    background-color: transparent;
+    border-bottom: 3px solid var(--grey);
+    font-size: 16px;
+    width: 100%
+}
+input[type='text']:focus-visible {
+    outline: 0;
+    border-bottom: 3px solid var(--blue);
+}
+.material-icons {
+    vertical-align: middle;
+}
+.warningBtn {
+    color: var(--red);
+}
+.warningBtn:hover {
+    color: white;
+    background-color: var(--red) !important;
+}
+.card {
+    z-index: 1;
+}
+.card a h1 {
+    padding-top: 0 !important;
+}
+.card:hover {
+    transform: none !important;
+}
+.card a:active {
+    transform: none !important;
+}
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}
+.card-empty {
+    cursor: pointer;
+}
