@@ -52,6 +52,8 @@ function saveCardAttr(change, elem, time) {
 
 function popupMenu(event) {
     event.preventDefault();
+    $(`[time=${selectedCard}]`).removeAttr('selected')
+    $(this).attr('selected', 'true')
     selectedCard = $(this).attr('time');
     if (!$(this)[0].style.background.includes("url(")) {
         $('#popupMenu').find('input#background').val($(this)[0].style.background)
@@ -127,8 +129,9 @@ $(document).bind("mousedown", function (e) {
     if (!$(e.target).parents("#contextMenu").length > 0) {
         $("#contextMenu").hide(100);
     }
-    if (!$(e.target).parents("#popupMenu").length > 0 && !$(e.target).parents(`[time=${selectedCard}]`).length > 0) {
+    if (!($(e.target).closest("#popupMenu").length > 0 || $(e.target).closest(`[time=${selectedCard}]`).length > 0)) {
         $("#popupMenu").slideUp(100);
+        $(`[time=${selectedCard}]`).removeAttr('selected')
     }
 });
 
@@ -137,6 +140,7 @@ function exportDOM(save=false) {
     let domBody = document.body.cloneNode(true)
     let domStyles = JSON.stringify(document.styleSheets)
     $(domBody).find('.editor-only').remove();
+    $(domBody).find('.card[selected]').removeAttr('selected')
     $(domBody).find('.card').css('animation', '')
     $(domBody).find('[contenteditable=""]').removeAttr('contenteditable') // remove content editable
     $(domBody).find('.card-empty').find('h1').text('Coming soon')
